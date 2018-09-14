@@ -1,0 +1,23 @@
+.padding-20 {
+    padding: 20px;
+}
+.border-blue {
+    border: #4472c4 2px solid;
+    padding: 3px;
+    margin: 10px;
+}
+.map {
+    height: 480px;
+}
+.p-header {
+    font-weight: bold;
+    display: block;
+}
+
+section:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+.margin-bottom-100 {
+    margin-bottom: 100px;
+}

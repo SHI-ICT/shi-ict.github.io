@@ -1,0 +1,373 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/earlyaccess/notosanskr.css');
+@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:100,500|Roboto');
+
+/***** 2018-08-24 [ v0.1 ] *****/
+
+/**************************************** RESET ****************************************/
+
+* { padding: 0; margin: 0; border: 0; box-sizing: border-box; -webkit-box-sizing: border-box; }
+html { width:100%; height:100%; text-size-adjust: none; }
+body { width:100%; height:100%; font: 400 14px 'Noto Sans KR', sans-serif; word-break: keep-all; }
+header, footer, nav, section, article { display: block; padding: 0; margin: 0; }
+h1, h2, h3, h4, h5, h6 { display: block; }
+form { display: inline; }
+input, select, textarea, button, label { font-family: inherit; font-size: 100%; vertical-align: middle; border-radius: 0; -webkit-border-radius: 0; box-shadow: none; appearance: none; -webkit-appearance: none; }
+img { vertical-align: top; }
+textarea { resize: none; font-family: inherit; }
+a { color: inherit; text-decoration: none; }
+a:hover, a:active, a:focus { text-decoration: none; }
+button { font-family: inherit; cursor: pointer; vertical-align: middle; background: none; }
+i, em, address { font-style: normal; }
+mark { background: none; }
+label { cursor: pointer; }
+table { width: 100%; border-spacing: 0; border-collapse: collapse; }
+th, td { font-weight: normal; }
+caption { width: 0; height: 0; font-size: 0; line-height: 0; overflow: hidden; visibility: hidden; }
+menu, dl, dt, dd, ul, ol, li { list-style: none; }
+hr { display: none; }
+
+/* Placeholder */
+::-webkit-input-placeholder { /* WebKit browsers */ color: #bbb; font-size: 12px; line-height: 33px; text-transform: none; }
+ :-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color: #bbb; font-size: 12px; line-height: 33px; text-transform: none; opacity: 1; }
+::-moz-placeholder { /* Mozilla Firefox 19+ */ color: #bbb; font-size: 12px; line-height: 33px; text-transform: none; opacity: 1; }
+ :-ms-input-placeholder { /* Internet Explorer 10+ */ color: #bbb; font-size: 12px; line-height: 33px; text-transform: none; }
+
+/* Scroll */
+::-webkit-scrollbar { width: 0; height: 0; }
+::-webkit-scrollbar-track { background: #aaa; }
+::-webkit-scrollbar-thumb { background: #000; }
+
+
+
+/**************************************** COMMON ****************************************/
+
+body { background: url(../img/visual.jpg) no-repeat fixed center 50%; background-size: cover; }
+
+.inner { display: block; width: 1000px; padding: 0 20px; margin: 0 auto; }
+
+/* IMPORTANT */
+.hide { display: none !important; }
+
+/* TAP */
+.tap { display: block; overflow: hidden; font-size: 0; border-top: 1px solid #d0d0d0; border-bottom: 1px solid #d0d0d0; }
+.tap .inner { min-height: auto; padding: 0; }
+.tap .tapt { display: inline-block; overflow: hidden; width: 33%; cursor: pointer; }
+.tap .tapt:nth-child(2) { position: relative; width: 34%; }
+.tap .tapt:nth-child(2):before { position: absolute; left: 0; top: 50%; margin-top: -7px; content: ""; display: block; overflow: hidden; width: 1px; height: 14px; background-color: #eaeaea; }
+.tap .tapt:nth-child(2):after { position: absolute; right: 0; top: 50%; margin-top: -7px; content: ""; display: block; overflow: hidden; width: 1px; height: 14px; background-color: #eaeaea; }
+.tap .tapt i { display: inline-block; overflow: visible; height: 45px; line-height: 45px; text-align: center; color: #808080; font-size: 16px; font-weight: 500; border-bottom: 2px solid #fff; }
+.tap .tapt:hover i { color: #000; }
+.tap .tapt.on i { color: #000; border-color: #00a0e9; }
+
+.tapview .tapc { display: none; }
+.tapview .tapc.on { display: block; }
+
+
+.btn_x { display: block; overflow: hidden; width: 45px; height: 45px; background: url(../img/ico_x.png) no-repeat center 50%; background-size: 45px; text-indent: -9999px; }
+
+
+/**************************************** RAYOUT ****************************************/
+
+/* HEADER */
+header { position: fixed; top: 0; left: 0; right: 0; display: block; overflow: hidden; width: 100%; background-color: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.5); z-index: 900; }
+header .inner { position: relative; overflow: hidden; padding: 30px 20px; transition: all 0.5s; }
+
+header h1 { display: inline-block; overflow: hidden; float: left; margin-top: 5px; }
+header h1 a { display: block; overflow: hidden; width: 65px; height: 40px; background: url(../img/logo.png) no-repeat 50% 50%; background-size: auto 40px; text-indent: -9999px; }
+
+header .btn_menu { display: none; overflow: hidden; float: right; width: 45px; height: 45px; background: url(../img/ico_menu.png) no-repeat center 50%; background-size: 35px; text-indent: -9999px; outline: 0; }
+
+header .btn_lang { display: inline-block; overflow: hidden; float: right; height: 25px; text-align: center; color: #707070; font: bold 10px/25px 'Roboto'; letter-spacing: 1px; border-radius: 13px; background: #f5f5f5 url(../img/global.png) no-repeat 4px 50%; background-size: 19px; padding: 0 10px 0 25px; margin-top: 10px; }
+header.sd .inner { padding: 10px 20px; }
+
+
+
+/* GNB */
+nav.gnb { display: inline-block; float: right; }
+nav.gnb .btn_x { position: fixed; top: 10px; right: 10px; display: none; }
+nav.gnb .menu { display: block; }
+nav.gnb .menu ul { display: block; overflow: hidden; }
+nav.gnb .menu ul li { display: inline-block; overflow: hidden; float: left; width: 140px; transition: all 0.5s; }
+nav.gnb .menu ul li .mm { position: relative; display: block; width: 100%; height: 45px; line-height: 45px; text-align: center; color: #505050; font-size: 18px; font-weight: 400; }
+nav.gnb .menu ul li .mm:before { position: absolute; left: 0; top: 50%; margin-top: -7px; content: ""; display: block; width: 1px; height: 14px; background-color: #b0b0b0; }
+nav.gnb .menu ul li .mm a { position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; height: 100%; z-index: 1; }
+
+nav.gnb .menu ul li .sub { display: block; width: 100%; height: 0; border-left: 1px solid #000; z-index: 500; transition: all 0.5s; }
+nav.gnb .menu ul li .sub .sm { display: block; overflow: hidden; width: 100%; height: 40px; line-height: 40px; text-align: left; color: #606060; font-size: 14px; font-weight: 400; padding: 0 15px; }
+nav.gnb .menu ul li .sub .sm:first-child { border-top: 0; }
+nav.gnb .menu ul li .sub .sm:hover { color: #fff; background-color: #00a0e9; }
+
+nav.gnb .menu ul li:hover .mm { color: #000; }
+nav.gnb .menu ul li:hover:before { width: 10px; margin-left: -5px; }
+nav.gnb .menu ul li:hover .sub { height: 120px; }
+
+
+
+/* SECTION */
+section { display: block; overflow: hidden; }
+section h2 { position: relative; display: block; overflow: hidden; text-align: center; color: #fff; font-size: 30px; font-weight: 100; text-shadow: 0 0 5px #000; padding: 10px 0; margin: 180px 0 30px 0; }
+section h2:before { position: absolute; top: 0; left: 50%; margin-left: -10px; content: ""; display: block; overflow: hidden; width: 20px; height: 1px; background-color: #fff; box-shadow: 0 0 5px #000; }
+section h2 + p { font-size: 16px; }
+section .wrap { display: block; width: 100%; text-align: center; background-color: #fff; }
+section .inner { display: block; overflow: hidden; text-align: center; padding: 40px 20px; }
+section .content { display: block; overflow: hidden; min-height: 600px; padding-top: 50px; }
+
+
+/* HOME */
+section.home { display: table; width: 100%; height: 100%; }
+section.home .wrap { display: table-cell; vertical-align: middle; background: url(../img/bg.png); }
+section.home h2 { color: #fff; font-size: 50px; font-weight: 100; line-height: 50px; text-shadow: 0 0 15px #000; }
+section.home h2:before { display: none; }
+section.home h2 i { display: inline-block; font-size: 70px; font-weight: 700; line-height: 60px; letter-spacing: 3px; margin-bottom: 20px; }
+section.home p { color: #fff; font-size: 20px; font-weight: 100; line-height: 40px; text-shadow: 0 0 15px #000; padding: 20px 0 50px 0; }
+
+/* 회사소개 */
+section.company .content > .pic { display: inline-block; float: left; width: 300px; margin: 0 40px 20px 0; }
+section.company .content > .tit { text-align: left; color: #303030; font-size: 20px; line-height: 30px; margin-bottom: 30px; }
+section.company .content > .txt { text-align: left; color: #505050; font-size: 14px; line-height: 20px; margin-bottom: 20px; }
+
+section.company .group { display: block; overflow: hidden; }
+section.company .group ul { display: block; overflow: hidden; }
+section.company .group ul li { position: relative; display: inline-block; overflow: hidden; float: left; width: 25%; padding: 30px; }
+section.company .group ul li:before { position: absolute; top: 0; right: 50%; content: ""; display: block; overflow: hidden; width: 1px; height: 30px; background-color: #b0b0b0; }
+section.company .group ul li:after { position: absolute; top: 0; left: 0; right: 0; content: ""; display: block; overflow: hidden; height: 1px; background-color: #b0b0b0; }
+section.company .group ul li .tit { position: relative; display: block; overflow: hidden; }
+section.company .group ul li .tit i { display: block; overflow: hidden; height: 40px; line-height: 40px; text-align: center; color: #fff; font-size: 16px; border-radius: 3px 3px 0 0; background-color: #092f8f; }
+section.company .group ul li .con { display: block; overflow: hidden; background-color: #f5f5f5; border-top: 1px solid #d0d0d0; border-radius: 0 0 3px 3px; padding: 20px; }
+section.company .group ul li .con p { position: relative; display: block; overflow: hidden; text-align: left; color: #707070; font-size: 13px; line-height: 16px; padding-left: 10px; margin-bottom: 10px; }
+section.company .group ul li .con p:before { position: absolute; left: 0; top: 6px; content: ""; display: block; overflow: hidden; width: 3px; height: 3px; background-color: #000; }
+section.company .group ul li .con + .tit { padding-top: 30px; }
+section.company .group ul li .con + .tit:before { position: absolute; top: 0; right: 50%; content: ""; display: block; overflow: hidden; width: 1px; height: 30px; background-color: #b0b0b0; }
+
+section.company .group ul li:nth-child(1) { display: block; float: none; width: 100%; padding-bottom: 30px; }
+section.company .group ul li:nth-child(1):before { top: auto; bottom: 0; }
+section.company .group ul li:nth-child(1):after { display: none; }
+section.company .group ul li:nth-child(1) .tit { width: 20%; margin: 0 auto; }
+section.company .group ul li:nth-child(1) .tit i { color: #092f8f; font-weight: 500; line-height: 35px; border: 2px solid #092f8f; border-radius: 3px; background-color: #fff; }
+
+section.company .group ul li:nth-child(2):after { left: 50%; }
+
+section.company .group ul li:nth-child(3) { border-right: 1px solid #b0b0b0; }
+
+section.company .group ul li:nth-child(5):after { right: 50%; }
+
+section.company .group ul li:nth-child(6) { display: block; float: none; width: 100%; padding-top: 50px; }
+section.company .group ul li:nth-child(6):before { display: none; }
+section.company .group ul li:nth-child(6):after { display: none; }
+section.company .group ul li:nth-child(6) .tit { position: absolute; top: 0; left: 50%; margin-left: -50px; }
+section.company .group ul li:nth-child(6) .tit i { width: 100px; height: 100px; line-height: 100px; border-radius: 50%; background-color: #505050; }
+section.company .group ul li:nth-child(6) .con { width: 50%; border-top: 0; border-radius: 3px; padding-top: 50px; margin: 0 auto; }
+section.company .group ul li:nth-child(6) .con p { margin-bottom: 0; margin-top: 10px; }
+
+section.company .history { position: relative; display: block; overflow: hidden; }
+section.company .history:before { position: absolute; left: 9px; top: 80px; bottom: 0; content: ""; display: block; overflow: hidden; width: 2px; height: 100%; background-color: #eaeaea; }
+section.company .history li { display: block; overflow: hidden; text-align: left; margin-top: 50px; }
+section.company .history li .tit { position: relative; display: block; overflow: hidden; float: left; width: 20%; color: #092f8f; font: 400 50px/100% 'Barlow Semi Condensed'; padding-left: 40px; }
+section.company .history li .tit:before { position: absolute; left: 0; top: 50%; margin-top: -6px; content: ""; display: block; overflow: hidden; width: 10px; height: 10px; border: 5px solid #eaeaea; border-radius: 50%; background-color: #092f8f; }
+section.company .history li .con { display: block; overflow: hidden; width: 80%; padding-left: 40px; }
+section.company .history li .con p { position: relative; margin-top: 10px; }
+section.company .history li .con p i { position: relative; display: inline-block; overflow: hidden; width: 55%; height: 30px; line-height: 30px; color: #707070; font-size: 15px; padding: 0 20px; }
+section.company .history li .con p i:before { position: absolute; left: 0; top: 10px; content: ""; display: block; overflow: hidden; width: 1px; height: 10px; background-color: #d0d0d0; }
+section.company .history li .con p i:first-child { width: 15%; color: #000; }
+section.company .history li .con p i:first-child:before { top: 14px; width: 3px; height: 3px; background-color: #00a0e9; }
+section.company .history li .con p i.memo { width: 30%; color: #ababab; }
+
+/* 사업소개 */
+section.business .work { display: block; overflow: hidden; }
+section.business .work li { position: relative; display: block; overflow: hidden; text-align: left; border-top: 1px solid #eee; padding: 40px 40px 40px 200px; }
+section.business .work li:before { position: absolute; left: 70px; top: 50%; margin-top: -30px; content: ""; display: block; overflow: hidden; width: 60px; height: 60px; border-radius: 50%; background: #e6f6fd url(../img/check.png) no-repeat 50% 50%; background-size: 40px; }
+section.business .work li:first-child { border-top: 0; }
+section.business .work li .tit { display: block; overflow: hidden; color: #092f8f; font-size: 16px; font-weight: 500; }
+section.business .work li .con { position: relative; color: #707070; font-size: 14px; padding-left: 15px; margin-top: 10px; }
+section.business .work li .con:before { position: absolute; left: 0; top: 9px; content: ""; display: block; overflow: hidden; width: 3px; height: 3px; background-color: #000; }
+
+/* 연수원 */
+section.institute .photo { display: block; overflow: hidden; padding-bottom: 50px; }
+section.institute .photo .pic { position: relative; display: inline-block; overflow: hidden; float: left; width: 33%; border-left: 1px solid #eee; margin-bottom: 30px; transition: all 0.5s; }
+section.institute .photo .pic:nth-child(3n) { width: 34%; border-right: 1px solid #eee; }
+section.institute .photo .pic img { width: 200px; opacity: 1; transition: all 0.5s; }
+section.institute .photo .pic p { position: absolute; left: 0; top: 50%; margin-top: 0; display: block; overflow: hidden; width: 100%; height: 30px; line-height: 30px; color: #000; font-size: 16px; text-shadow: 0 0 5px #fff; opacity: 0; transition: all 0.5s; }
+section.institute .photo .pic:hover { cursor: pointer; }
+section.institute .photo .pic:hover img { opacity: 0.4; }
+section.institute .photo .pic:hover p { margin-top: -15px; opacity: 1; }
+section.institute .table { width: 100%; border-bottom: 1px solid #303030; }
+section.institute .table tr { border-top: 1px solid #303030; }
+section.institute .table th { width: 20%; color: #000; font-size: 14px; line-height: 20px; background-color: #f5f5f5; padding: 15px 0; }
+section.institute .table td { width: 80%; text-align: left; color: #505050; font-size: 14px; line-height: 20px; padding: 15px 20px; }
+section.institute .table td p { position: relative; display: block; overflow: hidden; padding-left: 15px; margin-top: 10px; }
+section.institute .table td p:before { position: absolute; left: 0; top: 9px; content: ""; display: block; overflow: hidden; width: 3px; height: 3px; background-color: #000; }
+section.institute .table td p:first-child { margin-top: 0; }
+
+/* POP */
+article.pop { position: fixed; top: 0; left: 0; right: 0; bottom: 0; display: table; width: 100%; height: 100%; z-index: 1000; }
+article.pop .wrap { display: table-cell; text-align: center; vertical-align: middle; background-color: rgba(0,0,0,0.8); }
+article.pop .wrap .btn_x { position: fixed; top: 20px; right: 20px; }
+article.pop .wrap img { width: 100%; max-width: 800px; }
+
+/* 채용 */
+section.recruit .txt { color: #707070; font-size: 14px; font-weight: 400; padding: 0 10%; }
+section.recruit .txt:first-child { color: #092f8f; font-size: 24px; padding-bottom: 20px; }
+section.recruit ul { display: block; overflow: hidden; border-right: 1px solid #eee; margin-top: 50px; }
+section.recruit ul li { display: inline-block; overflow: hidden; float: left; width: 25%; min-height: 500px; color: #b0b0b0; border-left: 1px solid #eee; background: url(../img/ico_plus.png) no-repeat center 0; background-size: 20px; padding: 30px 20px 0 20px; }
+section.recruit ul li .tit { display: block; overflow: hidden; text-align: center; color: #000; font-size: 18px; font-weight: 400; padding: 10px 0; }
+section.recruit ul li .con { position: relative; display: block; overflow: hidden; text-align: left; color: #505050; font-size: 14px; line-height: 20px; padding-left: 15px; margin-top: 20px; }
+section.recruit ul li .con:before { position: absolute; left: 0; top: 9px; content: ""; display: block; overflow: hidden; width: 3px; height: 3px; background-color: #00a0e9; }
+
+/* 오시는 길 */
+section.contact ul { display: block; overflow: hidden; }
+section.contact ul li { display: inline-block; overflow: hidden; float: left; width: 33%; }
+section.contact ul li:first-child { width: 34%; }
+section.contact ul li .tit { display: block; overflow: hidden; width: 100px; height: 100px; font: 400 14px/100% 'Barlow Semi Condensed'; border-radius: 50%; padding-top: 60px; margin: 0 auto; }
+section.contact ul li .tit.office { background: #e6f6fd url(../img/ico_office.png) no-repeat center 25px; background-size: 25px; }
+section.contact ul li .tit.phone { background: #e6f6fd url(../img/ico_phone.png) no-repeat center 25px; background-size: 25px; }
+section.contact ul li .tit.email { background: #e6f6fd url(../img/ico_email.png) no-repeat center 25px; background-size: 25px; }
+section.contact ul li .con { display: block; overflow: hidden; min-height: 100px; color: #707070; padding: 10px 50px; }
+section.contact ul li .con a { display: block; }
+section.contact ul li .con a:hover { color: #000; }
+
+
+/* FOOTER */
+footer { background-color: #303030; }
+footer .inner { text-align: center; padding: 30px; }
+footer .info { display: inline-block; overflow: hidden; font-size: 0; padding-bottom: 5px; }
+footer .info li { display: inline-block; overflow: hidden; color: #b0b0b0; font-size: 14px; padding: 0 5px; }
+footer .copy { display: block; overflow: hidden; color: #808080; font: 11px 'Roboto', sans-serif; letter-spacing: 2px; }
+footer .top { position: fixed; bottom: 30px; right: 30px; display: block; overflow: hidden; width: 40px; height: 40px; line-height: 40px; text-align: center; font-size: 11px; color: #fff; border-radius: 50%; background: rgba(0,0,0,0.5) url(../img/top.png) no-repeat center 50%; background-size: 30px; text-indent: -9999px; opacity: 0.5; }
+footer .top:hover { opacity: 1; }
+
+
+
+
+
+/**************************************** ENGLISH ****************************************/
+
+body.eng .tap .tapt i { font-size: 14px; }
+
+body.eng nav.gnb .menu ul li .mm { font-size: 14px; }
+body.eng nav.gnb .menu ul li .sub .sm { font-size: 12px; }
+
+body.eng section.company .group ul li .tit i { font-size: 14px; }
+
+body.eng section.recruit ul li { min-height: 600px; }
+body.eng section.recruit ul li .tit { font-size: 16px; }
+body.eng section.recruit ul li .con { font-size: 12px; }
+
+body.eng section.contact ul li .con { padding: 10px 0; }
+
+
+
+@media screen and (max-width: 1000px) {	
+	.inner { width: 100%; }
+	
+	header .inner { padding: 10px; }
+	header h1 { margin-top: 2px; }
+	header .btn_menu { display: block; }
+	header.sd .inner { padding: 5px 10px; }
+	
+	nav.gnb { position: fixed; top: 0; bottom: 0; left: 0; display: none; float: none; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000; }
+	nav.gnb .btn_x { display: block; }
+	nav.gnb .menu { position: absolute; top: 0; bottom: 0; left: -250px; width: 250px; height: 100%; overflow: auto; background-color: #fff; box-shadow: 0 0 5px #000; }
+	nav.gnb .menu ul li { display: block; float: none; width: 100%; border-bottom: 1px solid #dfdfdf; }
+	nav.gnb .menu ul li .mm { text-align: left; padding: 0 20px; }
+	nav.gnb .menu ul li .mm:before { display: none; }
+	nav.gnb .menu ul li .mm a { display: none; }
+	nav.gnb .menu ul li .sub { display: block; height: auto; border-left: 3px solid #092f8f; background-color: #f5f5f5; }
+	
+	nav.gnb.on { display: block; }
+}
+@media screen and (max-width: 960px) {	
+	section h2 { margin: 120px 0 20px 0; }
+	section .inner { padding: 20px; }
+	section .content { padding-top: 20px; }
+	
+	section.home h2 { font-size: 40px; line-height: 40px; }
+	section.home p { font-size: 18px; line-height: 20px; }
+	
+	section.company .content > .pic { width: 40%; margin: 0 20px 10px 0; }
+	
+	section.company .group ul li { padding: 30px 10px; }
+	section.company .group ul li:nth-child(6) { padding-top: 50px; }
+	section.company .group ul li:nth-child(6) .con { float: none; width: 100%; height: auto; border-radius: 3px; padding: 30px; padding-top: 60px; }
+	section.company .group ul li:nth-child(6) .con p { margin-bottom: 0; margin-top: 10px; }
+	
+	section.company .history:before { left: 9px; }
+	section.company .history li .tit { float: none; width: 100%; }
+	section.company .history li .con { width: 100%; }
+	section.company .history li .con p i { width: auto; }
+	section.company .history li .con p i.memo { width: auto; font-size: 12px; }
+	
+	section.institute .photo .pic p { top: auto; bottom: 0; left: 50%; margin-left: -100px; width: 200px; height: 40px; line-height: 40px; color: #fff; text-shadow: 0 0 5px #000; background-color: rgba(0,0,0,0.5); opacity: 1; }
+	section.institute .photo .pic:hover img { opacity: 1; }
+	
+	section.recruit ul li { min-height: 600px; padding: 20px; }
+	
+	section.contact ul li .con { padding: 10px 0; }
+	
+	body.eng section.recruit ul li { min-height: 700px; padding: 20px; }
+	
+}
+@media screen and (max-width: 770px) {
+	.tap .tapt i { font-size: 14px; }
+	
+	section.company .group ul li { width: 50%; }
+	section.company .group ul li:nth-child(1) .tit { width: 50%; }
+	section.company .group ul li:nth-child(4):after { left: 50%; }
+	section.company .group ul li:nth-child(5):after { right: 0; }
+	
+	section.company .history li .con { width: 100%; }
+	section.company .history li .con p i { width: auto; font-size: 14px; }
+	section.company .history li .con p i:first-child { width: 20%; }
+	section.company .history li .con p i:first-child:before { top: 7px; }
+	section.company .history li .con p i.memo { display: block; margin-left: 20%; }
+	
+	section.institute .photo { padding-bottom: 0; }
+	section.institute .photo .pic { width: 50%; }
+	section.institute .photo .pic:nth-child(3n) { width: 50%; border-right: 0; }
+	section.institute .photo .pic:nth-child(2n) { border-right: 1px solid #eee; }
+	section.institute .photo .pic img { width: 130px; }
+	section.institute .photo .pic p { margin-left: -65px; width: 130px; height: 30px; line-height: 30px; font-size: 14px; }
+	
+	section.recruit ul { position: relative; border-left: 1px solid #eee; }
+	section.recruit ul:before { position: absolute; top: 0; bottom: 0; left: 50%; content: ""; display: block; overflow: hidden; width: 1px; height: 100%; background-color: #eee; }
+	section.recruit ul li { width: 50%; min-height: auto; padding: 10px; padding-bottom: 30px; border: 0; }
+	section.recruit ul li .con { margin-top: 10px; }
+	
+	body.eng section.recruit ul li { min-height: auto; padding: 10px; padding-bottom: 30px; }
+}
+@media screen and (max-width: 440px) {
+	.tap .tapt i { font-size: 13px; letter-spacing: -1px; }
+	
+	section.company .content > .pic { width: 35%; }
+	
+	section.company .history li .con p { margin-top: 20px; }
+	section.company .history li .con p i { display: block; height: auto; line-height: 20px; }
+	section.company .history li .con p i:before { top: 5px; }
+	section.company .history li .con p i:first-child { width: 100%; margin-bottom: 10px; }
+	section.company .history li .con p i.memo { clear: both; margin-left: 0; }
+	section.company .history li .con p i.memo:before { display: none; }
+	
+	section.business .work li { padding: 10px 0 25px 80px; }
+	section.business .work li:before { left: 0; }
+	section.business .work li .tit { margin-top: 15px; }
+	
+	section.recruit .txt { padding: 0; }
+	
+	section.contact ul { display: table; width: 100%; height: 100%; padding-bottom: 20px; }
+	section.contact ul li { display: table-row; float: none; width: 100%; }
+	section.contact ul li:first-child { width: 100%; }
+	section.contact ul li .tit { display: table-cell; border: 5px solid #fff; padding-top: 55px; }
+	section.contact ul li .con { display: table-cell; min-height: auto; text-align: left; vertical-align: middle; padding: 20px; }
+	
+	footer .copy { letter-spacing: 1px; }
+	
+	body.eng .tap .tapt i { font-size: 12px; }
+	
+	body.eng section.company .group ul li .tit i { font-size: 12px; letter-spacing: -1px; }
+}
+
+
+
+
+
+

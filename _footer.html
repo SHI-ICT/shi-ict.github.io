@@ -1,0 +1,76 @@
+<footer>
+	<div class="inner">
+		<ul class="info">
+			<li>사업자등록번호 760-81-00663</li>
+			<li>대표이사 김신</li>
+		</ul>
+		<p class="copy">Copyright &copy; 2018 SHI Co., Ltd. All rights reserved</p>
+		<button type="button" class="top">TOP</button>
+	</div>
+</footer>
+</body>
+</html>
+
+<script type="text/javascript">   
+$(document).ready( function() {
+	/* TAP */
+	$('.tapt').click(function(){
+		$(this).siblings('.tapt').removeClass('on');
+		$(this).addClass('on');
+		$(this).parent('.tap').siblings('.tapview').children('.tapc').removeClass('on');
+		$(this).parent('.tap').siblings('.tapview').children('.tapc').eq($(this).index()).addClass('on');
+	});
+	/* GNB */
+	$('.btn_menu').click(function(){
+		$('body').css({"overflow": "hidden"});
+		$('.gnb').addClass('on');
+		$('.gnb .menu').animate({left: '0'});
+	});
+	$('.gnb .btn_x').click(function(){
+		$('body').css({"overflow": ""});
+		$('.gnb').removeClass('on');
+		$('.gnb .menu').animate({left: '-250px'});
+	});
+	/* POP */
+	$('.photo .pic.p1').click(function(){
+		$('.pop.p1').removeClass('hide');
+	});
+	$('.photo .pic.p2').click(function(){
+		$('.pop.p2').removeClass('hide');
+	});
+	$('.photo .pic.p3').click(function(){
+		$('.pop.p3').removeClass('hide');
+	});
+	$('.photo .pic.p4').click(function(){
+		$('.pop.p4').removeClass('hide');
+	});
+	$('.photo .pic.p5').click(function(){
+		$('.pop.p5').removeClass('hide');
+	});
+	$('.photo .pic.p6').click(function(){
+		$('.pop.p6').removeClass('hide');
+	});
+	$('.pop .btn_x').click(function(){
+		$('.pop').addClass('hide');
+	});
+	/* top버튼 */
+	$('.top').hide();
+    $(function(){       
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+				$('header').addClass('sd');
+                $('.top').fadeIn();
+            } else {
+				$('header').removeClass('sd');
+                $('.top').fadeOut();
+            }
+        });     
+        $('.top').click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 500);
+            return false;
+        });
+    });
+});
+</script>
